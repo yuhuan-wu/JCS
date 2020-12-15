@@ -1,4 +1,4 @@
 # JCS
-Code of JCS: An explainable COVID-19 diagnosis system by joint classification and segmentation
+This is the official repository of the paper: JCS: An explainable COVID-19 diagnosis system by joint classification and segmentation
 
-Code will be available soon...
+The COVID-CS dataset and JCS code will be available soon...
