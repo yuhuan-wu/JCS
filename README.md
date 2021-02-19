@@ -31,15 +31,15 @@ To be updated...
 
 ### Precomputed Results
 
-Joint pretrained results (cls + seg) (Dice: 77.5%): here.
+Joint pretrained results (cls + seg) (Dice: 78.5%): [Google Drive](https://drive.google.com/file/d/1ISi9LeFNyBOxKbtKTg2QCcOKX3dbkdNS/view).
 
-Single pretrained results (seg only) (Dice: 78.5%): here.
+Single pretrained results (seg only) (Dice: 77.5%): [Google Drive](https://drive.google.com/file/d/1r3-OL2veeRrBCyoVJ7JcSzY2atQAVu4Z/view).
 
 ### Pretrained Models
 
-Joint pretrained model (cls + seg): here.
+Joint pretrained model (cls + seg): [Google Drive](https://drive.google.com/file/d/1V1EKXL4gFAH6ZtFRcmUv9-aI0sc5e9Ga/view).
 
-Single pretrained model (seg only): here.
+Single pretrained model (seg only): [Google Drive](https://drive.google.com/file/d/1iXD9n1LSR7_pyyU8xQd0kZVn0IAat3Aq/view).
 
 ## COVID-CS Dataset
 
