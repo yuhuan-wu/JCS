@@ -7,7 +7,7 @@ This repository contains:
 * COVID-CS dataset data.
 * Training and testing code of our JCS model.
 
-This paper has been accepted and published in IEEE Transactions on Image Processing (TIP) 2021.
+This paper has been accepted and published in [IEEE Transactions on Image Processing (TIP) 2021](https://ieeexplore.ieee.org/document/9357961).
 
 ## Method
 
@@ -36,7 +36,7 @@ You should get 66.61% mIoU computed by our CUDA-based evaluator.
 
 ### Training
 
-To be updated...
+Details are to be updated...
 
 ### Precomputed Results
 
