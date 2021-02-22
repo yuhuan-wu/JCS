@@ -93,7 +93,7 @@ output = model(vgg_feats, res2net_feats) or model(vgg_feats) or model(res2net_fe
 
 As default, the CT images are of $512\times 512$ size. So vgg_feats and res2net_feats are of $1\times 64 \times 512 \times 512$ and $1\times 64 \times 256 \times 256$ size, respectively. To save disk space, we also provide the half size version ($256 \times 256$ CT image input size).
 
-* Segmentation annotation data: [Google Drive](https://drive.google.com/file/d/1xAndf2OZrOGR5yevt4ZFjBM__ClkOtKZ/view?usp=sharing)
+* Segmentation annotation data, including train/test split txt files: [Google Drive](https://drive.google.com/file/d/1U489DgHNqlwLJ9VZa6qssf65SV9F45jc/view?usp=sharing)
 * JCS pretrained features: [OneDrive, 21.7GB](https://mailnankaieducn-my.sharepoint.com/:u:/g/personal/wuyuhuan_mail_nankai_edu_cn/EfiCUqJ0oABAjQs5aHC-IScBmTIIaur_qV8Ldt2366JXPA?e=tvFhDV)
 * JCS pretrained features (half feature size): [OneDrive, 5.7GB](https://mailnankaieducn-my.sharepoint.com/:u:/g/personal/wuyuhuan_mail_nankai_edu_cn/EXjDhKvCRdZKjutnjSujHWcB6Fkjx329ZJI6wesnQ07Tog?e=GNkXZf)
 * ImageNet pretrained features (3855 images): [OneDrive, 19.8GB](https://mailnankaieducn-my.sharepoint.com/:u:/g/personal/wuyuhuan_mail_nankai_edu_cn/EY01kub68GJPmzJmht97EaYBvX03anlgGgIJSeSAtitSWw?e=U0Totb)
