@@ -49,10 +49,10 @@ class FuseNet(nn.Module):
 class JCS(nn.Module):
     def __init__(self, pretrained=None, use_carafe=True,
                  enc_channels=[64, 128, 256, 512, 512, 512],
-                 dec_channels=[64, 128, 256, 512, 512, 512]):
+                 dec_channels=[64, 128, 256, 512, 512, 512], input_features=False):
         super(JCS, self).__init__()
-        self.vgg16 = vgg16(pretrained)
-        self.res2net = res2net101_v1b("ok")
+        self.vgg16 = vgg16(pretrained, input_features=input_features)
+        self.res2net = res2net101_v1b("ok", input_features=input_features)
         self.fuse = FuseNet(c1=[64, 128, 256, 512, 512], c2=[64, 256, 512, 1024, 2048], out_channels=enc_channels[:-1])
         self.gap = nn.AdaptiveAvgPool2d((1, 1))
         self.gpd = GPD(enc_channels[-1], expansion=4)
@@ -66,9 +66,11 @@ class JCS(nn.Module):
         self.pool = nn.MaxPool2d(2,2,0)
 
     def forward(self, input, res2net_features=None):
+        conv1, conv2, conv3, conv4, conv5 = self.vgg16(input)
         if res2net_features is not None:
-            conv1, conv2, conv3, conv4, conv5 = self.vgg16(input)
             conv1r, conv2r, conv3r, conv4r, conv5r = self.res2net(res2net_features)
+        else:
+            conv1r, conv2r, conv3r, conv4r, conv5r = self.res2net(input)
         conv5 = self.gpd(conv5)
         conv6 = self.pool(conv5)
         conv6 = self.gpd1(conv6)

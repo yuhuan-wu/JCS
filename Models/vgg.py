@@ -29,9 +29,11 @@ class VGG16BN(nn.Module):
         self.conv5_3 = ConvBNReLU(512, 512, frozen=True)
         
         self.input_features = input_features
+        if input_features:
+            print("vgg backbone input features conv_1_2!!!")
 
-    def forward(self, input, input_features=False):
-        if not self.input_features and not input_features:
+    def forward(self, input):
+        if not self.input_features:
             conv1_1 = self.conv1_1(input)
             conv1_2 = self.conv1_2(conv1_1)
             pool1 = self.pool1(conv1_2)
@@ -69,5 +71,6 @@ class VGG16BN(nn.Module):
 def vgg16(pretrained=None, input_features=False):
     model = VGG16BN(input_features=input_features)
     if pretrained is not None:
+        print("vgg16 backbone loading:", pretrained)
         model.load_state_dict(torch.load(pretrained), strict=False)
     return model

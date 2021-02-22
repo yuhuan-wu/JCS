@@ -41,7 +41,7 @@ class JCS(nn.Module):
         self.input_features = input_features
 
     def forward(self, input):
-        conv1, conv2, conv3, conv4, conv5 = self.vgg16(input, input_features=self.input_features)
+        conv1, conv2, conv3, conv4, conv5 = self.vgg16(input)
         conv5 = self.gpd(conv5)
         conv6 = self.pool(conv5)
         conv6 = self.gpd1(conv6)

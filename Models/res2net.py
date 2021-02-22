@@ -144,6 +144,8 @@ class Res2Net(nn.Module):
         
         
         self.input_features = input_features
+        if self.input_features:
+            print("res2net input features conv1 !!!")
         #self.fc = nn.Linear(512 * block.expansion, num_classes)
 
         for m in self.modules():
@@ -218,8 +220,8 @@ def res2net101_v1b(pretrained=True, **kwargs):
 
     if True:
         print("loading res2net cls pretrained model")
-        #pretrained = torch.load(open("res2net_pretrain.pth", "rb"))
-        #model.load_state_dict(pretrained, strict=False)#")#model_zoo.load_url(model_urls['res2net101_v1b_26w_4s']))
+        pretrained = torch.load(open("res2net101_v1b_26w_4s-0812c246.pth", "rb"))
+        print("loaded res2net pretrained model")
     return model
 
 def res2net50_v1b_26w_4s(pretrained=False, **kwargs):
@@ -240,10 +242,11 @@ def res2net101_v1b_26w_4s(pretrained=False, **kwargs):
         pretrained (bool): If True, returns a model pre-trained on ImageNet
     """
     model = Res2Net(Bottle2neck, [3, 4, 23, 3], baseWidth = 26, scale = 4, **kwargs)
-    print("okok!!3432!!!!\n\n\n\n\n")
+    #print("okok!!3432!!!!\n\n\n\n\n")
     if pretrained:
         print("loading res2net pretrained model")
-        pretrained = torch.load(open("res2net_pretrain.pth", "rb"))
+        pretrained = torch.load(open("res2net101_v1b_26w_4s-0812c246.pth", "rb"))
+        print("loaded res2net pretrained model")
         model.load_state_dict(pretrained, strict=False)#")#model_zoo.load_url(model_urls['res2net101_v1b_26w_4s']))
     return model
 
