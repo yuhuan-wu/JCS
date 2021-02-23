@@ -90,8 +90,8 @@ $NAME.mat, which contains two variables: vgg_feats, res2net_feats
 import scipy.io as sio
 import torch
 feats = sio.load_mat('$NAME.mat')
-vgg_feats = torch.from_numpy(feats["vgg_feats"]).float() * 20 # get vgg_feats conv1_2 (of VGG-16)
-res2net_feats = torch.from_numpy(feats["res2net_feats"]).float() * 20 # get res2net_feats conv1 (of Res2Net-101-v1b)
+vgg_feats = torch.from_numpy(feats["vgg_feats"]).float() / 20 # get vgg_feats conv1_2 (of VGG-16)
+res2net_feats = torch.from_numpy(feats["res2net_feats"]).float() / 20 # get res2net_feats conv1 (of Res2Net-101-v1b)
 output = model(vgg_feats, res2net_feats) or model(vgg_feats) or model(res2net_feats) # model inference
 ```
 
