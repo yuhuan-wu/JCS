@@ -23,10 +23,11 @@ It should have no big differences running on PyTorch 0.4.1 ~ 1.7.
 
 #### Testing
 
-* Segmentation Test
+* **Segmentation Test**
 
 Please download the computed intermediate features at first: [OneDrive](https://mailnankaieducn-my.sharepoint.com/:u:/g/personal/wuyuhuan_mail_nankai_edu_cn/EfiCUqJ0oABAjQs5aHC-IScBmTIIaur_qV8Ldt2366JXPA?e=tvFhDV). Download the annotation files: [Google Drive](https://drive.google.com/file/d/1U489DgHNqlwLJ9VZa6qssf65SV9F45jc/view?usp=sharing).
 Extract them into `./data/COVID-CS/` folder. Put features under `data/COVID-CS/feats_joint_pretrained` directory.
+Download [the annotation files](https://drive.google.com/file/d/1U489DgHNqlwLJ9VZa6qssf65SV9F45jc/view?usp=sharing), and put them under the `./data/COVID-CS/` folder.
 
 Then, download the JCS model weights (joint.pth): [Google Drive](https://drive.google.com/file/d/1V1EKXL4gFAH6ZtFRcmUv9-aI0sc5e9Ga/view). Put it into the `model_zoo/` folder.
 
@@ -37,6 +38,17 @@ bash ./tools/test_joint.sh
 ```
 
 You should get 66.61% mIoU computed by our CUDA-based evaluator. 
+
+* **Classification Test**
+
+We provide a demo that generates explainable attention maps of CT images, as shown in our paper.
+
+Examples of CT images have been in the `examples/` folder. The following steps are to generate the corresponding attention maps:
+
+* First, please download the model weights:  `res2net_cls.pth` which only is trained with image labels and `res2net_segloss.pth` which is trained with pixel-level annotations. 
+Downloading urls are  [res2net_cls.pth](https://drive.google.com/file/d/1rhLLZoeCBYQ7XWpEppywdL3mODlsJn9k/view?usp=sharing) and [res2net_segloss.pth](https://drive.google.com/file/d/1B431SuffibX9tBueSeVVoOL9TThmvjIz/view?usp=sharing), respectively. Put the weights into `model_zoo/` folder.
+* Second, run `PYTHONPATH=$(pwd):$PYTHONPATH python tools/gen_results.py`, results will be generated in the `results_pos` folder.
+
 
 #### Training
 
@@ -50,9 +62,12 @@ Single pretrained results (seg only) (Dice: 77.5%): [Google Drive](https://drive
 
 #### Pretrained Models
 
-Joint pretrained model (cls + seg): [Google Drive](https://drive.google.com/file/d/1V1EKXL4gFAH6ZtFRcmUv9-aI0sc5e9Ga/view).
-
-Single pretrained model (seg only): [Google Drive](https://drive.google.com/file/d/1iXD9n1LSR7_pyyU8xQd0kZVn0IAat3Aq/view).
+* Segmentation:
+* Joint pretrained model (cls + seg): [Google Drive](https://drive.google.com/file/d/1V1EKXL4gFAH6ZtFRcmUv9-aI0sc5e9Ga/view).
+* Single pretrained model (seg only): [Google Drive](https://drive.google.com/file/d/1iXD9n1LSR7_pyyU8xQd0kZVn0IAat3Aq/view).
+* Classification:
+* Pretrained model (trained only with image labels): [Google Drive](https://drive.google.com/file/d/1rhLLZoeCBYQ7XWpEppywdL3mODlsJn9k/view?usp=sharing).
+* Pretrained model (trained with pixel-level annotation): [Google Drive](https://drive.google.com/file/d/1B431SuffibX9tBueSeVVoOL9TThmvjIz/view?usp=sharing).
 
 ## COVID-CS Dataset
 
@@ -105,8 +120,6 @@ As default, the CT images are of `512 * 512` size. So vgg_feats and res2net_feat
 
 #### COVID-CS Data for Classification
 
-Still preparing...
 
-We will release related data in recent days.
 
 
