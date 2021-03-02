@@ -9,6 +9,11 @@ This repository contains:
 
 This paper has been accepted and published in [IEEE Transactions on Image Processing (TIP) 2021](https://ieeexplore.ieee.org/document/9357961).
 
+If you need any (special) help for the code and data, do not hesitate to leave issues in this repository.
+
+Your can also directly contact me via e-mail: wuyuhuan (at) mail.nankai (dot) edu.cn
+
+
 ### Method
 
 #### Introduction
@@ -41,13 +46,17 @@ You should get 66.61% mIoU computed by our CUDA-based evaluator.
 
 * **Classification Test**
 
-We provide a demo that generates explainable attention maps of CT images, as shown in our paper.
+We provide a demo that generates **explainable attention maps** of CT images, as shown in our paper.
 
 Examples of CT images have been in the `examples/` folder. The following steps are to generate the corresponding attention maps:
 
 * First, please download the model weights:  `res2net_cls.pth` which only is trained with image labels and `res2net_segloss.pth` which is trained with pixel-level annotations. 
 Downloading urls are  [res2net_cls.pth](https://drive.google.com/file/d/1rhLLZoeCBYQ7XWpEppywdL3mODlsJn9k/view?usp=sharing) and [res2net_segloss.pth](https://drive.google.com/file/d/1B431SuffibX9tBueSeVVoOL9TThmvjIz/view?usp=sharing), respectively. Put the weights into `model_zoo/` folder.
-* Second, run `PYTHONPATH=$(pwd):$PYTHONPATH python tools/gen_results.py`, results will be generated in the `results_pos` folder.
+* Second, run `PYTHONPATH=$(pwd):$PYTHONPATH python tools/gen_results.py`, results will be generated in the `results_pos` folder. You should get same result with the illustrated figure in our paper.
+
+
+
+
 
 
 #### Training
