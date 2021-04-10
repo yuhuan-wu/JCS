@@ -129,6 +129,8 @@ As default, the CT images are of `512 * 512` size. So vgg_feats and res2net_feat
 
 #### COVID-CS Data for Classification
 
+The data are quite large. If you need a copy of the full 144K data, please contact me via E-mail!
 
+## Others
 
-
+If you need special help, please leave issues or directly contact me via e-mail. Thanks!
