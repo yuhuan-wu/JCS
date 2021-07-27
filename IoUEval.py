@@ -35,15 +35,4 @@ class IoUEval:
     def get_metric(self):
         x = self.iou / self.num_images
         y = self.mae / self.num_images
-        print(x, y)
-        return x, y 
-        """
-        prec = self.prec / self.num_images
-        recall = self.recall / self.num_images
-        F_beta = (1 + 0.3) * prec * recall / (0.3 * prec + recall + self.EPSILON)
-        MAE = self.mae / self.num_images
-        print('total_images: {}'.format(self.num_images))
-
-        return F_beta.max().item(), MAE.item()
-        """
-
+        return x, y
