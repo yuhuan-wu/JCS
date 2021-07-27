@@ -56,12 +56,21 @@ Downloading urls are  [res2net_cls.pth](https://drive.google.com/file/d/1rhLLZoe
 
 
 
+#### Training Segmentation Model
 
+We provide a training script with training examples which are located in the `data` folder.
 
+Before training our model, please make sure that your GPU memory is higher than `4GB` for a batchsize of 1 or `6GB` for a batchsize of 2.
 
-#### Training
+Then, please download the ImageNet-pretrained VGG-16 model [5stages_vgg16_bn-6c64b313.pth](https://drive.google.com/file/d/1zgO9vMCDpj2J50EExa28S3nWDNGQe5WC/view?usp=sharing) and put the model weights under the `model_zoo/` folder.
+After the above preparation, you can simply run the following command to train our model: 
 
-Details are to be updated...
+`CUDA_VISIBLE_DEVICES=0 ./tools/train.sh`
+
+You can also prepare your data following the format of the data in the `./data/` folder. 
+
+Note: The pure source segmentation data of our COVID-CS dataset can not be released so far according to some policies. Therefore, we utilize COVID-19-CT100 dataset to show how to train our model simply.
+
 
 #### Precomputed Results
 
