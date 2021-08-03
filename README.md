@@ -5,7 +5,7 @@ IEEE Transactions on Image Processing (TIP) 2021.
 This repository contains:
 
 * COVID-CS dataset data.
-* Training and testing code of our JCS model.
+* **Training** and testing code of our JCS model.
 
 This paper has been accepted and published in [IEEE Transactions on Image Processing (TIP) 2021](https://ieeexplore.ieee.org/document/9357961).
 
@@ -15,10 +15,6 @@ Your can also directly contact me via e-mail: wuyuhuan (at) mail.nankai (dot) ed
 
 
 ### Method
-
-#### Introduction
-
-Recently, the coronavirus disease 2019 (COVID-19) has caused a pandemic disease in over 200 countries, influencing billions of humans. To control the infection, identifying and separating the infected people is the most crucial step. The main diagnostic tool is the Reverse Transcription Polymerase Chain Reaction (RT-PCR) test. Still, the sensitivity of the RT-PCR test is not high enough to effectively prevent the pandemic. The chest CT scan test provides a valuable complementary tool to the RT-PCR test, and it can identify the patients in the early-stage with high sensitivity. However, the chest CT scan test is usually time-consuming, requiring about 21.5 minutes per case. This paper develops a novel Joint Classification and Segmentation (JCS) system to perform real-time and explainable COVID-19 chest CT diagnosis. To train our JCS system, we construct a large scale COVID-19 Classification and Segmentation (COVID-CS) dataset, with 144,167 chest CT images of 400 COVID-19 patients and 350 uninfected cases. 3,855 chest CT images of 200 patients are annotated with fine-grained pixel-level labels of opacifications, which are increased attenuation of the lung parenchyma. We also have annotated lesion counts, opacification areas, and locations and thus benefit various diagnosis aspects. Extensive experiments demonstrate that the proposed JCS diagnosis system is very efficient for COVID-19 classification and segmentation. It obtains an average sensitivity of 95.0% and a specificity of 93.0% on the classification test set, and 78.5% Dice score on the segmentation test set of our COVID-CS dataset.
 
 #### Requirements
 
@@ -54,9 +50,24 @@ Examples of CT images have been in the `examples/` folder. The following steps a
 Downloading urls are  [res2net_cls.pth](https://drive.google.com/file/d/1rhLLZoeCBYQ7XWpEppywdL3mODlsJn9k/view?usp=sharing) and [res2net_segloss.pth](https://drive.google.com/file/d/1B431SuffibX9tBueSeVVoOL9TThmvjIz/view?usp=sharing), respectively. Put the weights into `model_zoo/` folder.
 * Second, run `PYTHONPATH=$(pwd):$PYTHONPATH python tools/gen_results.py`, results will be generated in the `results_pos` folder. You should get same result with the illustrated figure in our paper.
 
+#### Train Segmentation Model with Your Own Data
 
+Please place your full data folder (e.g. `COVID-Dataset`) under the `./data` folder.
+Then, create `train.txt` and `test.txt` following this format:
 
-#### Training Segmentation Model
+````
+train/1.jpg train/1.png 
+train/2.jpg train/2.png 
+````
+
+Where for example `train/1.jpg` is the CT image filename and `train/1.png` is the name of the corresponding annotation image.
+Each line includes one CT image with a corresponding annotation image.
+
+Edit `./tools/train.sh`, replace `--data_dir ./data/xxxxx` with `--data_dir ./data/COVID-Dataset`.
+
+If you do not have data, you can train with provided examples as described below.
+
+#### Training Segmentation Model: An Example
 
 We provide a training script with training examples which are located in the `data` folder.
 
