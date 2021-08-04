@@ -50,7 +50,9 @@ Examples of CT images have been in the `examples/` folder. The following steps a
 Downloading urls are  [res2net_cls.pth](https://drive.google.com/file/d/1rhLLZoeCBYQ7XWpEppywdL3mODlsJn9k/view?usp=sharing) and [res2net_segloss.pth](https://drive.google.com/file/d/1B431SuffibX9tBueSeVVoOL9TThmvjIz/view?usp=sharing), respectively. Put the weights into `model_zoo/` folder.
 * Second, run `PYTHONPATH=$(pwd):$PYTHONPATH python tools/gen_results.py`, results will be generated in the `results_pos` folder. You should get same result with the illustrated figure in our paper.
 
-#### Train Segmentation Model with Your Own Data
+#### Training
+
+* Train Segmentation Model with Your Own Data
 
 Please place your full data folder (e.g. `COVID-Dataset`) under the `./data` folder.
 Then, create `train.txt` and `test.txt` following this format:
@@ -60,14 +62,14 @@ train/1.jpg train/1.png
 train/2.jpg train/2.png 
 ````
 
-Where for example `train/1.jpg` is the CT image filename and `train/1.png` is the name of the corresponding annotation image.
+Where `train/1.jpg` is the CT image filename and `train/1.png` is the name of the corresponding annotation image.
 Each line includes one CT image with a corresponding annotation image.
 
 Edit `./tools/train.sh`, replace `--data_dir ./data/xxxxx` with `--data_dir ./data/COVID-Dataset`.
 
 If you do not have data, you can train with provided examples as described below.
 
-#### Training Segmentation Model: An Example
+* Training Segmentation Model: An Example
 
 We provide a training script with training examples which are located in the `data` folder.
 
