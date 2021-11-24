@@ -4,14 +4,29 @@ IEEE Transactions on Image Processing (TIP) 2021.
 
 This repository contains:
 
-* COVID-CS dataset data.
-* **Training** and testing code of our JCS model.
+- [x] Available COVID-CS classification and segmentation data, including demos, annotations, and ResNet stage-1 features.
+- [x] **Training** and testing code of our JCS model.
 
 This paper has been accepted and published in [IEEE Transactions on Image Processing (TIP) 2021](https://ieeexplore.ieee.org/document/9357961).
+
 
 If you need any (special) help for the code and data, do not hesitate to leave issues in this repository.
 
 Your can also directly contact me via e-mail: wuyuhuan (at) mail.nankai (dot) edu.cn
+
+### Citation
+
+```
+@article{wu2021jcs,
+  title={{JCS}: An explainable {COVID}-19 diagnosis system by joint classification and segmentation},
+  author={Wu, Yu-Huan and Gao, Shang-Hua and Mei, Jie and Xu, Jun and Fan, Deng-Ping and Zhang, Rong-Guo and Cheng, Ming-Ming},
+  journal={IEEE Transactions on Image Processing},
+  volume={30},
+  pages={3113--3126},
+  year={2021},
+  publisher={IEEE}
+}
+```
 
 
 ### Method
@@ -151,7 +166,15 @@ As default, the CT images are of `512 * 512` size. So vgg_feats and res2net_feat
 
 #### COVID-CS Data for Classification
 
-The data are quite large. If you need a copy of the full 144K data, please contact me via E-mail!
+We provide what we used for training classification model of JCS. 
+
+Data Download: [JianGuoYun](https://www.jianguoyun.com/p/Dcgg9owQm-qfCRiZkp0E)
+
+Each .mat file is size 64×112×112 feature of the first stage resnet, from a CT Image. We use same CT images for training the classification model for JCS, which also achieves Good result. So the above data will be enough for you to train a new model. 
+
+How to use these features for training?
+Please read the README.md of the [data](https://www.jianguoyun.com/p/Dcgg9owQm-qfCRiZkp0E) first.
+If you only use these features, I recommend to remove the first stage of resnet and directly pass the features to the next stage.
 
 ## Others
 
