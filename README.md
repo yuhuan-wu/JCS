@@ -169,7 +169,6 @@ As default, the CT images are of `512 * 512` size. So vgg_feats and res2net_feat
 We provide what we used for training classification model of JCS. 
 
 Data Download: 
-* [JianGuoYun, valid until Dec. 31st 2021](https://www.jianguoyun.com/p/Dcgg9owQm-qfCRiZkp0E)
 * [Google Drive](https://drive.google.com/file/d/1jfvNF2Kv14kTQ1jts5eYaerI1_WbAHTi/view?usp=sharing)
 
 Each .mat file is size 64×112×112 feature of the first stage resnet, from a CT Image. We use same CT images for training the classification model for JCS, which also achieves Good result. So the above data will be enough for you to train a new model. 
